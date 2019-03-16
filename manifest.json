@@ -2,31 +2,30 @@
 	"manifest_version": 2,
 
 	"browser_action": {
-		"default_icon"  : "logo/Icon-48.png",
-		"default_title" : "百度云大文件下载破解",
-		"default_popup" : "popup.html"
+		"default_icon"  : "logo/Icon.png",
+		"default_title" : "injector"
 	},
-	"description": "百度云大文件下载破解，作者博客：http://blog.jarjar.cn/",
+	"content_scripts": [{
+        "run_at": "document_start",
+        "js": ["main.js"],
+        "matches": [
+            "<all_urls>"
+        ]
+    }],
+	"description": "A chrome plugin for masquerade.",
 	"icons": {
-		"128" : "logo/Icon-128.png",
-		"32"  : "logo/Icon-32.png",
-		"48"  : "logo/Icon-48.png",
-		"16"  : "logo/Icon-16.png"
+		"128" : "logo/Icon.png"
 	},
-	"content_scripts": [
-		{
-			"run_at": "document_start",
-			"matches" : ["*://pan.baidu.com/*","*://yun.baidu.com/*"],
-			"js"      : ["core.js"],
-			"all_frames" : true
-		}
-	],
-	"web_accessible_resources": ["logo/Icon-256.png"],
-	"name": "百度云大文件下载破解",
-	"short_name": "百度云大文件下载破解",
+	"background": {
+        "scripts": ["core.js"]
+    },
+	"name": "injector",
+	"short_name": "injector",
 	"permissions": [
-    "storage",
-		"tabs"
+		"tabs",
+    	"storage",
+		"webRequest", 
+    	"webRequestBlocking"
 	],
-	"version": "1.1.1"
+	"version": "1.0"
 }
