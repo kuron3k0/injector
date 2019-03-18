@@ -32,7 +32,7 @@ var actualCode =  '(' + function() {
             writable: false
         },
         platform: {
-            value: 'Android',
+            value: 'Win64',
             configurable: false,
             enumerable: true,
             writable: false
